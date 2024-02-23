@@ -1,4 +1,5 @@
 import { Stack } from "@mui/system";
+import backgroundImage from "/bg.gif";
 
 interface PropsType {
   children: React.ReactNode;
@@ -18,8 +19,7 @@ const BackgroundStack = ({ children, spacing }: PropsType) => {
       sx={{
         padding: "20px 0 0 0",
         height: "100vh",
-        backgroundImage:
-          "url('https://i.pinimg.com/originals/54/f8/13/54f81331a9da88c623b96363fb0a4da1.gif')",
+        backgroundImage: `url(${backgroundImage.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
