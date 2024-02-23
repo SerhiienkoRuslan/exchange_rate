@@ -18,7 +18,7 @@ const BackgroundStack = ({ children, spacing }: PropsType) => {
       sx={{
         padding: "20px 0 0 0",
         height: "100vh",
-        backgroundImage: `url('../public/bg.gif')`,
+        backgroundImage: 'url(/bg.gif)',
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
