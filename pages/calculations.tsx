@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import { observer } from "mobx-react-lite";
+
+import { SelectChangeEvent } from "@mui/material";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
 import exchangeRate from "../store/exchangeRate";
 import TextFieldRate from "../components/TextFieldRate";
 import SelectorField from "../components/SelectorField";
-import { SelectChangeEvent } from "@mui/material";
 import MainLayout from "../layout/MainLayout";
 import AnimatedText from "../components/AnimatedText";
 import { CourcidResponceType } from "../types/types";
-import BackgroundStack from "../components/BackgroundStack";
 
 const CalculationsPage = observer(({ courcid }: CourcidResponceType) => {
   const { currency } = exchangeRate.exchangeRates;
@@ -65,48 +66,48 @@ const CalculationsPage = observer(({ courcid }: CourcidResponceType) => {
   };
 
   return (
-    <MainLayout title="Calculation Page">
-      <BackgroundStack spacing={{ xs: 12, md: 12, sm: 12 }}>
-        <Link href={"/"}>
-          <Typography
-            variant="h4"
-            component="div"
-            textAlign={"center"}
-            bgcolor={"rgba(255,255,255,0.7)"}
-          >
-            Back
-          </Typography>
-        </Link>
-        <Stack
-          direction={"row"}
+    <MainLayout title="Calculation Page" bgSpacing={{ xs: 12, md: 12, sm: 12 }}>
+      <Link href={"/"}>
+        <Typography
+          variant="h4"
+          component="div"
           textAlign={"center"}
-          justifyContent={"center"}
-          alignItems={{ xs: "center" }}
-          spacing={6}
+          bgcolor={"rgba(255,255,255,0.7)"}
         >
-          <Stack direction={{ xs: "column", sm: "row", md: "row" }} spacing={4}>
-            <TextFieldRate
-              label={isUSD ? "USD" : "EUR"}
-              value={UAH}
-              onChange={onChangeForeignCurrency}
-            />
+          Back
+        </Typography>
+      </Link>
 
-            <TextFieldRate
-              label="UAH"
-              value={isUSD ? USD : EUR}
-              onChange={onChangeNationalCurrency}
-            />
-          </Stack>
+      <Stack
+        direction={"row"}
+        textAlign={"center"}
+        justifyContent={"center"}
+        alignItems={{ xs: "center" }}
+        spacing={6}
+      >
+        <Stack direction={{ xs: "column", sm: "row", md: "row" }} spacing={4}>
+          <TextFieldRate
+            label={isUSD ? "USD" : "EUR"}
+            value={UAH}
+            onChange={onChangeForeignCurrency}
+          />
 
-          <SelectorField
-            label={"Currency"}
-            value={currency}
-            handleChange={handleChangeCurrency}
-            arrayValue={arrayCurrency}
+          <TextFieldRate
+            label="UAH"
+            value={isUSD ? USD : EUR}
+            onChange={onChangeNationalCurrency}
           />
         </Stack>
-        <AnimatedText textValue="Calculations are made at the cash rate (sale) of Privat Bank (in branches). Last update: today. Thank you for using the application!" />
-      </BackgroundStack>
+
+        <SelectorField
+          label={"Currency"}
+          value={currency}
+          handleChange={handleChangeCurrency}
+          arrayValue={arrayCurrency}
+        />
+      </Stack>
+
+      <AnimatedText textValue="Calculations are made at the cash rate (sale) of Privat Bank (in branches). Last update: today. Thank you for using the application!" />
     </MainLayout>
   );
 });
