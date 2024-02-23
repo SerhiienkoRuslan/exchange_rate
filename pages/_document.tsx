@@ -9,7 +9,12 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body>
+      <body style={{
+        height: "100vh",
+        backgroundImage: 'url(/bg.gif)',
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}>
         <Main />
         <NextScript />
       </body>
