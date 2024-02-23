@@ -6,7 +6,7 @@ import MainLayout from "../layout/MainLayout";
 
 const NotFoundPage = () => {
   return (
-    <MainLayout title="Sorry :(">
+    <MainLayout title="Sorry :(" bgSpacing={{}}>
       <Stack
         sx={{
           padding: "20px 0 0 0",
